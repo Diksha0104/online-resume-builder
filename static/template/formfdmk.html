@@ -1,0 +1,145 @@
+<button type="button" action="logout_view">logout</button>
+<form id="Form" action="">
+    <h1>Register:</h1>
+    {% comment %} form 1 {% endcomment %}
+    <div class="tab">
+      <div class=container>
+        <h2 >Enter your Achivments  here:</h2>
+        <p>Certificate</p>
+        <input type="text"  placeholder="First name" oninput="this.className = ''" name="fname">
+        <div class="container text-center mt-2 " id ="weaddButton">
+            <button type="button" onclick="addnewCfield()"class= "btn btn-primary btn-sm" > Add </button>
+        </div>
+
+
+
+        <p>Experience</p>
+        <textarea class="form-control" rows="5" id="comment"placeholder="About you" name="About you"></textarea>
+        <button type="button" id="" onclick="">Add</button>
+        <p>projects</p>
+        <input type="text"  placeholder="First name" oninput="this.className = ''" name="fname">
+        <button type="button" id="" onclick="">Add</button>
+        <p>skills</p>
+        <input type="text"  placeholder="First name" oninput="this.className = ''" name="fname">
+        <button type="button" id="" onclick="">Add</button>
+
+        
+      </div>
+    </div>
+    <!-- One "tab" for each step in the form: -->
+
+    {% comment %} form 2 {% endcomment %}
+    <div class="tab">
+      <div class=container>
+        <h2 >Enter your personal details here:</h2>
+        <div class="row">
+          <p>NAME</p>
+          <div class="col">
+            <input type="text"  placeholder="First name" oninput="this.className = ''" name="fname">
+          </div>
+          <div class="col">
+            <input type="text" placeholder="last name" oninput="this.className = ''" name="lname">
+          </div> 
+        </div>
+        <div>
+          <br><p>DATE OF BIRTH</p>
+          <input type="date" placeholder="Date of birth" oninput="this.className = ''" name="dob">
+        </div> 
+        <br><p>CONTACT</p>
+        <div class="row">
+          <div class="col">
+            <input type="tel"  placeholder="123-45-678" oninput="this.className = ''"  name="phone">
+          </div>
+          <div class="col">
+            <input type="email" placeholder="@gmail.com" oninput="this.className = ''" name="email">
+          </div> 
+        </div> 
+        <div>
+          <br><p>PROFESSION</p>
+          <input type="text" placeholder="Profession" oninput="this.className = ''" name="Profession">
+        </div> 
+        <div class="form-group">
+            <br><p> ABOUT YOU</p>
+            <textarea class="form-control" rows="5" id="comment"placeholder="About you" name="About you"></textarea>
+        </div>
+      </div>
+    </div>
+    {% comment %} form 3 {% endcomment %}
+    <div class="tab">
+      <div class=container>
+        <h2 >Enter your Educational  details here:</h2>
+        <div class="row">
+          <p>10th STANDARD</p>
+          <br><input type="text"  placeholder="School name" oninput="this.className = ''" name="10school"><br>
+          <select name="ograde" class="ograde">
+            <option value="Percent">Percent</option>
+            <option value="cgpa">cgpa</option>
+          </select>
+          <div class="col">
+            <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="10grades">
+          </div>
+          <div class="col">
+            <br><input type="date" placeholder="passout" oninput="this.className = ''" name="10passout">
+          </div> 
+        </div>
+        <div class="row">
+          <p>12th STANDARD</p>
+          <br><input type="text"  placeholder="School name" oninput="this.className = ''" name="12school"><br>
+          <select name="ograde" class="ograde">
+            <option value="Percent">Percent</option>
+            <option value="cgpa">cgpa</option>
+          </select>
+          <div class="col">
+            <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="12grades">
+          </div>
+          <div class="col">
+            <br><input type="date" placeholder="passout" oninput="this.className = ''" name="12passout">
+          </div> 
+        </div> 
+        <div class="row">
+          <p>GRADUATION</p>
+          <br><input type="text"  placeholder="College/univercity" oninput="this.className = ''" name="college"><br>
+          <select name="ograde" class="ograde">
+            <option value="Percent">Percent</option>
+            <option value="cgpa">cgpa</option>
+          </select>
+          <div class="col">
+            <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="cgrades">
+          </div>
+          <div class="col">
+            <p>Joining year</p>
+            <br><input type="year" placeholder="joining date" oninput="this.className = ''" name="cjoindate">
+          </div> 
+
+          <div class="col">
+            <p> Passout year</p>
+            <br><input type="year" placeholder="passout" oninput="this.className = ''" name="cpassout">
+          </div>
+
+        </div> 
+      </div>
+      {% comment %} form 4 {% endcomment %}
+  </div>
+    <div class="tab">
+      <h2 >Enter your Achivments  here:</h2>
+        
+     
+    </div>
+    
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <br><button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      </div>
+    </div>
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+</form>
+
+<script src="{% static 'template/script1.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

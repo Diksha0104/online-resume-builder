@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="{% static 'template/resume2.css' %}">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Resume</title>
+</head>
+
+<body>
+
+    <a href="{% url 'user_logout' %}">Logout</a>
+    <button class="download" onclick="printpdf()">Download pdf</button>
+
+  <div class="container" id="element-to-print">
+          <div class="container">
+            <div class="profile">
+              <div class="profile_container">
+                
+                <div>
+                  <h1 class="profile_name">
+                    <span class="profile_name_firstName">{{name}}</span>
+                    
+                  </h1>
+                  <p class="profile_title">{{profession}}</p>
+                  <p class="description profile_description">
+                    {{profile}}
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="group-1">
+              {% comment %} <div class="skills">
+                <h3 class="title">Expertise</h3>
+                <ul>
+                  {%for skill in skills%}
+                      <li>
+                          <span class="text">{{skill}}</span>
+                      </li>
+                  {%endfor%}
+              </ul>
+              </div> {% endcomment %}
+              
+
+              <div class="edu">
+                <h3 class="title">Education</h3>
+                <div class="edu_item">
+                  <p class="item_preTitle">{{year_10}}</p>
+                  <h4 class="item_title">{{grade_10}}</h4>
+                  <p class="item_subtitle">
+                    {{school_10}}
+                  </p>
+                </div>
+                <div class="edu_item">
+                  <p class="item_preTitle">{{year_12}}</p>
+                  <h4 class="item_title">{{grade_12}}</h4>
+                  <p class="item_subtitle">
+                    {{school_12}}
+                  </p>
+                </div>
+                <div class="edu_item">
+                  <p class="item_preTitle">{{college}}</p>
+                  <h4 class="item_title">{{college_grade}}</h4>
+                  <p class="item_subtitle">
+                    {{college}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="certification">
+                <h3 class="title">certification</h3>
+                <div class="item_title">
+                  {%for certificate in certificates%}
+                      <p>{{certificate}}<p><br>
+                  {%endfor%}
+                </div>
+              </div>
+            </div>
+            <div class="group-2">
+              <div class="exp">
+                <h3 class="title">Experience</h3>
+                <div class="exp_item">
+                  <p class="item_preTitle">{{job_duration}}t</p>
+                  <h4 class="item_title">{{company}}</h4>
+                  <p class="item_subtitle">{{job_post}}</p>
+                  <p class=" description">
+                    {{job_about}}
+                  </p>
+                </div>
+                
+              </div>
+              <div class="certification">
+                <h3 class="title">Projects</h3>
+                <div class="item_title">
+                  {%for project in projects%}
+                  <li>{{project}}</li>
+                  {%endfor%}     
+                </div>
+              </div>
+              <div class="certification">
+                <h3 class="title">Skills</h3>
+                <div class="item_title">
+                  <p>
+                    <ul>
+                        {%for skill in skills%}
+                            <li>
+                                <span class="text">{{skill}}</span>
+                            </li>
+                        {%endfor%}
+                    </ul></p>    
+                </div>
+              </div>
+
+              <div class="interest">
+                <h3 class="title">Interest</h3>
+                <div class="interest_items">
+                  <div class="interest_item">
+                    <i data-feather="music"></i>
+                    <span>Music</span>
+                  </div>
+                  <div class="interest_item">
+                    <i data-feather="book"></i>
+                    <span>Books</span>
+                  </div>
+                  <div class="interest_item">
+                    <i data-feather="map"></i>
+                    <span>Travel</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <hr>
+            <div class="group-3">
+              <div class="contact">
+                <h3 class="title">Contact</h3>
+                <div class="contact_info">
+                  <p class="description">
+                    {{address}}
+                  </p>
+                  <p class="description">
+                    {{contact_no}}
+                  </p>
+                  <p class="description">
+                    {{email}}
+                  </p>
+                </div>
+              </div>
+              <div class="social">
+                <h3 class="title">Socials</h3>
+                <div class="social_items">
+                  <a href="#" target="_b" class="social_item">
+                    <i data-feather="github"></i>
+                    <span>/shaifarfan</span>
+                  </a>
+                  <a href="#" target="_blank" class="social_item">
+                    <i data-feather="twitter"></i>
+                    <span>/shaifarfan08</span>
+                  </a>
+                  <a href="#" target="_blank" class="social_item">
+                    <i data-feather="linkedin"></i>
+                    <span>/shaifarfan08</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </div>
+  
+  <script>
+      function printpdf(){
+          var element = document.getElementById('element-to-print');
+          html2pdf(element);
+      }
+  </script>
+</body>
+
+</html>

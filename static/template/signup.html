@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign in </title>
+    <link rel="stylesheet" href="{% static 'template/style.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    
+    <div class="signup-box">
+      
+      <h1>Sign Up</h1>
+      <h4>Build your Resume in just  a minutes</h4>
+      <form method="POST"  action="/user_signup/">
+        {% csrf_token %} 
+        <label>Name</label>
+        <input type="text"name="name" placeholder="" />
+        <label>Email</label>
+        <input type="email"name="email" placeholder="" />
+        <label>Password</label>
+        <input type="password" name="password" placeholder="" />
+        
+        <br><br>
+        <input type="Submit" value="Submit" class="submitbutton"/>
+      <closeform></closeform></form>
+      <br><br>
+      {% for message in messages %}
+
+        <div class="msg">
+          {{message}}
+        </div>
+     
+      {% endfor %}
+      <p class="para-2">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>
+      </p>
+     
+      
+    </div>
+  </body>
+</html>
+

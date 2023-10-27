@@ -1,0 +1,203 @@
+{% load static %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'template/formstyle.css' %}">
+  <title>Resume Builder</title>
+</head>
+<body>
+  <div class="container" >
+  <a href="{% url 'user_logout' %}">Logout</a>
+  <h1 class="text-center">Resume Form</h1>
+  <form method="POST"  action="/display_page?id={{id}}">
+    {% csrf_token %}
+   <div class="row my-2">
+      <div class="col-md-6">
+          <h3>Personal Information</h3>
+          <div class="form-group">
+              <label for="nameField">Your Name</label>
+              <input type="text" id="nameField" placeholder="Enter here" class="form-control"name="name">
+          </div>
+
+           <div class="form-group">
+              <label for="nameField">PROFESSION</label>
+              <input type="text" id="nameField" placeholder="Enter here" class="form-control" name="profession">
+          </div> 
+
+           <div>
+              <br><p>DATE OF BIRTH</p>
+              <input type="date" placeholder="Date of birth" oninput="this.className = ''" name="dob">
+            </div>  
+
+          <div class="form-group mt-2">
+              <label for="contactField">Your Contact Number</label>
+              <input type="number" id="contactField" placeholder="Enter  here" class="form-control" name="contact-no">
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="contactField">Your Email Id</label>
+            <input type="email" id="contactField" placeholder="Enter  here" class="form-control" name="email">
+        </div>
+
+          <div class="form-group mt-2">
+              <label for="addressField">Your Address</label>
+              <textarea  id="addressField" placeholder="Enter  here" class="form-control" rows="5" name="address"></textarea>
+          </div>
+
+          {% comment %} <p class="text-secondary my-3"></p>IMPORTANT LINKS</p> {% endcomment %}
+
+          {% comment %} <div class="form-group mt-2">
+              <label for="fbField">FACEBOOK LINK</label>
+              <input type="text" id="fbField" placeholder="Enter  here" class="form-control" name="facebook_link">
+          </div>
+
+          <div class="form-group mt-2">
+              <label for="instaField">INSTAGRAM LINK</label>
+              <input type="text" id="instaField" placeholder="Enter  here" class="form-control" name="instagram_link">
+          </div> {% endcomment %}
+
+          <div class="form-group mt-2">
+              <label for="linkedinField">LINKEDIN LINK</label>
+              <input type="text" id="linkedinField" placeholder="Enter  here" class="form-control" name="linkedin">
+          </div>
+          <div class="form-group mt-5">
+          
+          <div class="form-group mt-2" id="cs">
+              <label for="addressField">CERTIFICATES AND SPECIALIZATIONS (COMMA SEPARATED)</label>
+              <textarea  id="addressField" placeholder="Enter  here" class="form-control csField" rows="3" name="certificates"></textarea>
+
+          </div>
+
+          <div class="form-group mt-2" id="pj">
+              <label for="addressField">PROJECTS (COMMA SEPARATED)</label>
+              <textarea  id="addressField" placeholder="Enter  here" class="form-control pjField" rows="3" name="projects"></textarea>
+
+              {% comment %} <div class="container text-center mt-2" id="pjAddButton">
+                  <button  onclick="addNewPJField()"class="btn btn-primary btn-sm">ADD</button>
+              </div> {% endcomment %}
+          </div>
+
+
+      </div>
+
+      </div>
+      <div class="col-md-6 mt-2">
+          <h3>Professional Information</h3>
+
+          <div class="form-group mt-2">
+              <label for="">PROFILE</label>
+              <textarea    rows="5" placeholder="Enter  here" class="form-control " name="profile"></textarea>
+          </div>
+
+          <div class="form-group mt-2" id="aq">
+            <div class="tab">
+                <div class=container>
+                  <h3>WORK EXPERIENCE</h3>
+                  <div class="row">
+                    <p>Company name</p>
+                    <br><input type="text"  placeholder="Company name" oninput="this.className = ''" name="company" class="form-control aqField"><br>
+                    <div class="col">
+                      <p>Duration</p>
+                      <input type="text"  placeholder="2022-2023" oninput="this.className = ''" name="job-duration">
+                    </div>
+                    <div class="col">
+                      <p>Post</p>
+                      <input type="text"  placeholder="Post" oninput="this.className = ''" name="job-post">
+                    </div>
+                    <div class="row">
+                      <p>About work</p>
+                      <br><textarea  id="addressField" placeholder="Enter  here" class="form-control csField" rows="3" name="job-about"></textarea>
+                  </div>
+                  
+                   
+                </div>
+            </div>
+            </div>
+          <div class="form-group mt-2" id="aq">
+          <div class="tab">
+              <div class=container>
+                <h3>ACADEMIC QUALIFICATION</h3>
+                <div class="row">
+                  <p>10th STANDARD</p>
+                  <br><input type="text"  placeholder="School name" oninput="this.className = ''" name="10-school" class="form-control aqField"><br>
+                  <div class="col">
+                    <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="10-grade">
+                  </div>
+                  <div class="col">
+                    <br><input type="text" placeholder="passout" oninput="this.className = ''" name="10-year">
+                  </div> 
+                </div>
+                <div class="row">
+                  <p>12th STANDARD</p>
+                  <br><input type="text"  placeholder="School name" oninput="this.className = ''" name="12-school" class="form-control aqField"><br>
+                  <div class="col">
+                    <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="12-grade">
+                  </div>
+                  <div class="col">
+                    <br><input type="text" placeholder="passout" oninput="this.className = ''" name="12-year">
+                  </div> 
+                </div> 
+                <div class="row">
+                  <p>GRADUATION</p>
+                  <br><input type="text"  placeholder="College/univercity" oninput="this.className = ''" name="college" class="form-control aqField"><br>
+                  <div class="col">
+                    <br><input type="text"  placeholder="Grades" oninput="this.className = ''" name="college-grade">
+                  </div>
+                  <div class="col">
+                    <br><input type="text" placeholder="passout" oninput="this.className = ''" name="college-year">
+                  </div> 
+                </div> 
+              </div>
+          </div>
+          </div>
+
+         <!--- <div class="form-group mt-2" id="aq">
+              <label for="addressField">ACADEMIC QUALIFICATIONS</label>
+              <textarea  id="addressField" placeholder="Enter  here" class="form-control aqField" rows="3" ></textarea>
+
+              <div class="container text-center mt-2" id="aqAddButton">
+                  <button  onclick="addNewAQField()"class="btn btn-primary btn-sm">ADD</button>
+              </div>
+          </div>-->
+
+
+          
+
+          <div class="form-group mt-2" id="sk">
+              <label for="addressField">SKILLS (COMMA SEPARATED)</label>
+              <textarea  id="addressField" placeholder="Enter  here" class="form-control skField" rows="3" name="skills"></textarea>
+
+              {% comment %} <div class="container text-center mt-2" id="skAddButton">
+                  <button  onclick="addNewSKField()"class="btn btn-primary btn-sm">ADD</button>
+              </div> {% endcomment %}
+          </div>
+
+
+      </div>
+   </div>
+
+      <div class="container text-center mt-3">
+          <button class="btn btn-primary btn-lg" type="submit">SUBMIT</button>
+      </div>
+      </div>
+    </form>
+
+  
+
+
+<!--<a href="#" class="previous round">&#8249;</a>
+<a href="#" class="next round">&#8250;</a>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<script src="{% static 'template/script1.js' %}"></script>
+
+</body>
+</html>

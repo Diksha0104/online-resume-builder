@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- fontawesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- google fonts - inter font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- custom css -->
+        <link rel="stylesheet" href="{% static 'template/display.css' %}"/>
+        <script src="{% static 'template/display.js' %}"></script>
+    </head>
+    <body> 
+        
+        <a href="{% url 'user_logout' %}">Logout</a>
+        
+             <div class = "templates-item position-relative col-lg-6">
+                <div class = "template-item-img mx-auto me-lg-0 position-relative">
+                    <img src = "{% static 'image/sc2.png' %}"alt = "" class = "img-fluid">
+                    <a href = "{% url 'form_page1'%}?id=1" class = "btn btn-lg btn-primary position-absolute choose-template-btn">Select Template</a>
+                </div>
+            </div>
+        
+
+        
+ 
+             
+            <div class = "templates-item position-relative col-lg-6">
+                <div class = "template-item-img mx-auto ms-lg-0 position-relative">
+                    <img src = "{% static 'image/sc3.png' %}" alt = "" class = "img-fluid">
+                    <a href =  "{% url 'form_page1'%}?id=2"class = "btn btn-lg btn-primary position-absolute choose-template-btn">Select Template</a>
+                </div>
+            </div>
+        
+        
+        
+
+
+        
+            <div class = "templates-item position-relative col-lg-6">
+                <div class = "template-item-img mx-auto ms-lg-0 position-relative">
+                    <img src = "{% static 'image/sc4.png' %}" alt = "" class = "img-fluid">
+                    <a href = "{% url 'form_page1'%}?id=3" class = "btn btn-lg btn-primary position-absolute choose-template-btn">Select Template</a>
+                </div>
+            </div>
+        
+        
+        
+
+         
+            <div class = "templates-item position-relative col-lg-6">
+                <div class = "template-item-img mx-auto ms-lg-0 position-relative">
+                    <img src = "{% static 'image/sc1.png' %}" alt = "" class = "img-fluid">
+                    <a href = "{% url 'form_page1'%}?id=4" class = "btn btn-lg btn-primary position-absolute choose-template-btn">Select Template</a>
+                </div>
+            </div>
+         
+       
+       
+        
+   </body>
+
+</html>

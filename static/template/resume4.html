@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="Width=device-Width, initial-scale=1.0">
+
+        <title>Responsive CV</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'template/resume4.css' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+    <div >
+        <a href="{% url 'user_logout' %}">Logout</a>
+        {% comment %} <a href="{% url 'download' %}">download</a> {% endcomment %}
+        <button class="download" onclick="printpdf()">Download pdf</button>
+        <div class="container" id="element-to-print">
+            <div class="left_Side">
+                <div class="profiletext">
+                    {% comment %} <div class="imgbx">
+                        <img src="cv1.jpg">
+                    </div> {% endcomment %}
+                    <h2>{{name}}<br><span>Student</span><br><span>Date of Birth: {{dob}}</span></h2>
+                </div>
+                <div class="contactinfo">
+                    <h3 class="title">Contact Info</h3>
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <span class="text">{{contact_no}}</span>
+                        </li>
+                        <li>
+                            <span class="icon"></span>
+                            <span class="text">{{email}}/span>
+                        </li>
+                        <li>
+                            <span class="icon"></span>
+                            <span class="text">{{linkedin}}</span>
+                        </li>
+                        <li>
+                            <span class="icon"></span>
+                            <span class="text">{{address}}</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="contactinfo education">
+                    <h3 class="title">Education</h3>
+                    <ul>
+                        <li>
+                            <h5>{{year_10}}</h5>
+                            <h4>{{school_10}}</h4>
+                            <h4>{{grade_10}}</h4>
+                        </li>
+                        <li>
+                            <h5>{{year_12}}</h5>
+                            <h4>{{school_12}}</h4>
+                            <h4>{{grade_12}}</h4>
+                        </li>
+                        <li>
+                            <h5>{{college_year}}</h5>
+                            <h4>{{college}}</h4>
+                            <h4>{{college_grade}}</h4>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contactinfo Skill">
+                    <h3 class="title">Skills</h3>
+                    <ul>
+                        {%for skill in skills%}
+                            <li>
+                                <span class="text">{{skill}}</span>
+                                {% comment %} <span class="percent">
+                                    <div style="width: 90%;"></div>
+                                </span> {% endcomment %}
+                            </li>
+                        {%endfor%}
+                    </ul>
+                </div>
+            </div>    
+
+
+            <div class="right_Side">
+                <div class="about">
+                    <h2 class="title2">Profile</h2>
+                    <p>{{profile}}</p>
+                </div>
+                <div class="about">
+                    <h2 class="title2">Expericence</h2>
+                    <div class="box">
+                        <div class="Year_company">
+                            <h5>{{job_duration}}</h5>
+                            <h5>{{Company}}</h5>
+                        </div>
+                        <div class="text">
+                            <h4>{{job_post}}</h4>
+                            <p>  {{job_about}}<br><br>
+                                        </p>
+                        </div>
+                    </div>
+
+                    {% comment %} <div class="box">
+                        <div class="Year_company">
+                            <h5>2016 - 2019</h5>
+                            <h5>Company Name</h5>
+                        </div>
+                        <div class="text">
+                            <h4>UI/Ux Designer</h4>
+                            <p>Hello,  I am sakshi  lambhate currently student at Acropolis Institute of Technology Research.
+                                I had done my Schooling from Shree Bal Vinay Mandir Chhatribagh Indore,I have a lot of interest in Computer field so that's why I took the Computer Application Course to leran More about computers.<br><br>
+                                                </p>
+                        </div>
+                    </div> {% endcomment %}
+
+                    {% comment %} <div class="box">
+                        <div class="Year_company">
+                            <h5>2014 - 2016</h5>
+                            <h5>Company Name</h5>
+                        </div>
+                        <div class="text">
+                            <h4>junior Ux Designer</h4>
+                            <p>Hello,  I am sakshi  lambhate currently student at Acropolis Institute of Technology Research.
+                                I had done my Schooling from Shree Bal Vinay Mandir Chhatribagh Indore,I have a lot of interest in Computer field so that's why I took the Computer Application Course to leran More about computers.<br><br>
+                            </p>
+                        </div>
+                    </div> {% endcomment %}
+
+                </div>
+                <div class="about skills">
+                    <h2 class="title2">Certifications & Specialisations</h2>
+                    <div class="box">
+                        {%for certificate in certificates%}
+                            <h4>{{certificate}}</h4><br>
+                        {%endfor%}
+                    </div>
+                </div>
+
+                <div class="about project">
+                    <h2 class="title2">Projects</h2>
+                    <ul>
+                        {%for project in projects%}
+                            <li>{{project}}</li>
+                        {%endfor%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+      <script>
+        function printpdf(){
+            var element = document.getElementById('element-to-print');
+            html2pdf(element);
+        }
+      </script>
+    </div>
+    </body>
+</html>
