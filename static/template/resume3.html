@@ -11,9 +11,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     </head>
     <body>
+        <a href="{% url 'user_logout' %}">Logout</a>
+        <button class="download" onclick="printpdf()">Download pdf</button>
         <div class="container">
            <div class="avatar">
-            <img src="cv4.jpg" alt="">
+            {{image}}
+            <img src= {{image}} alt="">
            </div>
            <div class="name">
                 <h1>{{name}}</h1>
@@ -25,106 +28,95 @@
                     <li>
                         <span>E</span> {{email}}
                     </li>
+                    <li>
+                        <span>L</span> {{linkedin}}
+                    </li>
     
                 </ul>
            </div>
            <div class="info">
                 <ul>
-                    <li>From <b>HCMC</b> - VietNam</li>
-                    <li>01/01/0101</li>
-                    <li>AAAA University</li>
+                    <li><b>{{course_name}} {{college_grade}}</b></li>
+                    <li>{{college}} ({{college_year}})</li>
+                    {% comment %} <li>AAAA University</li> {% endcomment %}
                 </ul>
+
+                <ul>
+                    <li><b> Higher Secondary(12th) : {{grade_12}}</b></li>
+                    <li>{{school_12}} ({{year_12}})</li>
+                    {% comment %} <li>AAAA University</li> {% endcomment %}
+                </ul>
+
+                <ul>
+                    <li><b> Secondary (10th) : {{grade_10}}</b></li>
+                    <li>{{school_10}} ({{year_10}})</li>
+                    {% comment %} <li>AAAA University</li> {% endcomment %}
+                </ul>
+                
            </div>
            <div class="intro">
-            <h2>INTRODUCE MYSELT</h2>
-            {{profile}}
+            <h2>Objective</h2>
+            {{objective|striptags}}
            </div>
            <div class="experience">
             <h2>EXPERIENCE</h2>
     
-            <div class="item">
-                <h4>{{job_post}}r</h4>
-                <div class="time">
-                   <span>{{job_duration}}</span>
-                   <span>{{company}}</span>
+            {% for job in jobs%}
+                <div class="box">
+                    <div class="Year_company">
+                        <h4>{{job.job_duration}}</h4>
+                        <h4>{{job.company}}</h4>
+                    </div>
+                    <div class="text">
+                        <h4>{{job.job_post}}</h4>
+                        <p>  {{job.job_about}}<br><br></p>
+                    </div>
                 </div>
-                <div class="des">
-                    {{job_about}}
-                </div>
-            </div>
+            {%endfor%}
     
-                <div class="item">
-                    <h4>Student</h4>
-                    <div class="time">
-                       <span>2015 - 2019</span>
-                       <span>ACDC University</span>
-                    </div>
-                    <div class="des">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium officia nobis quas excepturi consectetur quidem quia est neque doloremque.
-                    </div>
-                </div>
                 <h2 class="skills">
                     SKILLS
                 </h2>
                 <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Bootstrap</li>
-                    <li>Javascript</li>
-                    <li>PHP</li>
-                    <li>MySql</li>
-                    <li>Git</li>
-                    <li>Laravel</li>
+                    {%for skill in skills%}
+                        <li>
+                            <span class="text">{{skill}}</span>
+                        </li>
+                    {%endfor%}
                 </ul>
-    
+          
+
+                <h2 class="skills">
+                    CERTIFICATE
+                </h2>
+                <ul>
+                    {%for certificate in certificates%}
+                        <li>
+                            <span class="text">{{certificate}}</span>
+                        </li>
+                    {%endfor%}
+                </ul>
+
            </div>
+           
            <div class="project">
-            <h2>PROJECTS</h2>
             <div class="item">
-                <h4>Website shopping</h4>
-                <div class="time">
-                    2020
-                </div>
-                <div class="web">
-                    www.lundevweb.com
-                </div>
-                <div class="location">
-                    Frond-end Developer
-                </div>
-                <div class="des">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consequatur amet sed, est eum facilis repellendus 
-                    atque perspiciatis iste porro nobis autem explicabo expedita fugiat nostrum. Eveniet eum autem culpa!
-                    <ul>
-                        <li>Lorem ipsum dolordolores.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, dolores.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur dolores.</li>
-                    </ul>
-                </div>
+                <h2 class="skills">
+                    PROJECTS
+                </h2>
+                <ul>
+                    {% for project in projects %}
+                        <li>
+                            {{ project }}
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
     
             <div class="item">
-                <h4>Website shopping</h4>
-                <div class="time">
-                    2020
-                </div>
-                <div class="web">
-                    www.lundevweb.com
-                </div>
-                <div class="location">
-                    Frond-end Developer
-                </div>
-                <div class="des">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consequatur amet sed, est eum facilis repellendus 
-                    atque perspiciatis iste porro nobis autem explicabo expedita fugiat nostrum. Eveniet eum autem culpa!
-                    <ul>
-                        <li>Lorem ipsum dolordolores.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, dolores.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur dolores.</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <div class="item">
+                <h2 class="skills">
+                    EXPERIENCE
+                </h2>
                 <h4>Website shopping</h4>
                 <div class="time">
                     2020
@@ -147,6 +139,11 @@
             </div>
            </div>
         </div>
-        
+        <script>
+            function printpdf(){
+                var element = document.getElementById('element-to-print');
+                html2pdf(element);
+            }
+        </script>
     </body>
     </html>

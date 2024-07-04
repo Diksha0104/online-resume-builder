@@ -29,9 +29,14 @@ urlpatterns = [
     path('logout_view',views.logout_view,name="user_logout"),
     # path('', include("App.urls")),
     path('display_page',views.display_page,name="display_page"),
+    path('experiencedisplay_page',views.experiencedisplay_page,name="experiencedisplay_page"),
     path('resume1',views.resume1,name="resume1"),
     path('resume2.html',views.resume2,name="resume2"),
     path('resume3.html',views.resume3,name="resume3"),
     path('resume4.html',views.resume4,name="resume4"),
-
+    path('selector.html',views.selector_page,name="selector_page"),
+    path('fresher_form', views.fresher_form, name="fresher_form"),
+    path('experience_form', views.experience_form, name="experience_form"),
+    path('freshertemplate_page', views.freshertemplate_page, name="freshertemplate_page"),
+    path('experiencetemplate_page', views.experiencetemplate_page, name="experiencetemplate_page"),
 ]

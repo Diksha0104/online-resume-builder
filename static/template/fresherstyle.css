@@ -1,0 +1,72 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    border: 2px solid rgb(0, 128, 87); /* Adding green border */
+    border-radius: 10px;
+    padding: 15px;
+    animation: borderGlow 1.5s ease infinite alternate; /* Adding animation */
+  }
+  
+  @keyframes borderGlow {
+    from {
+      border-color: #37a08e;
+      box-shadow: 0 0 10px #37a08e;
+    }
+    to {
+      border-color: #ccc;
+      box-shadow: none;
+    }
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #49c1a2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #37a08e;
+  }
+  /* styles.css */
+.education-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .education-column {
+    flex: 1;
+  }

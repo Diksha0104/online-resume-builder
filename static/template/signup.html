@@ -9,7 +9,13 @@
     
   </head>
   <body>
-    
+    {% for message in messages %}
+
+        <div class="msg">
+          {{message}}
+        </div>
+     
+    {% endfor %}
     <div class="signup-box">
       
       <h1>Sign Up</h1>
@@ -23,23 +29,18 @@
         <label>Password</label>
         <input type="password" name="password" placeholder="" />
         
-        <br><br>
+        <br>
         <input type="Submit" value="Submit" class="submitbutton"/>
       <closeform></closeform></form>
-      <br><br>
-      {% for message in messages %}
-
-        <div class="msg">
-          {{message}}
-        </div>
-     
-      {% endfor %}
+      {% comment %} <br>
+       {% endcomment %}
       <p class="para-2">
         Already have an account? <a href="{% url 'login' %}">Login here</a>
       </p>
      
       
     </div>
+
   </body>
 </html>
 

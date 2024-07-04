@@ -13,4 +13,6 @@ class Form_data(models.Model):
     address = models.CharField(max_length=144, blank=True, null=True)
     phone_number = models.CharField(max_length=45, blank=True, null=True)
     email = models.CharField(max_length=45, blank=True, null=True)
-    
+
+class profileImages(models.Model):
+    image = models.ImageField(upload_to='images/')

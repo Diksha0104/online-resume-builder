@@ -1,5 +1,8 @@
 from django.contrib import admin
 from App.models import Form_data
+from .models import profileImages
+
+admin.site.register(profileImages)
 # from App.models import user_data
 # Register your models here.
 # class db_admin(admin.ModelAdmin):

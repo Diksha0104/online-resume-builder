@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'C:\Users\lenovo\Desktop\Resume_Builder copy\static\template\fresher_resume4style.css' %}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</head>
+<body>
+    <a href="{% url 'user_logout' %}">Logout  4</a>
+    {% comment %} <a href="{% url 'download' %}">download</a> {% endcomment %}
+    <button class="download" onclick="printpdf()">Download pdf</button>
+    
+    <div class="container" id="element-to-print">
+        <div class="main">
+            <div class="name-div">
+                <h1>{{name}}</h1>
+            </div>
+
+            <div class="left">
+                <div class="box-1">
+                    <p class="heading">Personal Details</p>
+                    <p class="p1">Contact No :{{contact_no}}</p>
+                    <p class="p1">Address : {{address}}</p>
+                    <p class="p1">Email : {{email}}</p>
+                    <p class="p1">Linkdin : {{linkedin}}</p>
+                </div>
+
+                <div class="box-1">
+                    <br/>
+                    <p class="heading">EDUCATION</p>
+                    <br/>
+                    <p class="p2">Senior Secondary(10th CBSE) :{{grade_10}}</p>
+
+                    <p class="p2">{{school_10}} ({{year_10}})</p>
+
+                    <p class="p2">Higher Secondary(12th MP BOARD) :{{grade_12}}</p>
+
+                    <p class="p2">{{school_12}} ({{year_12}})</p>
+
+                    <p class="p2">{{course_name}} : {{college_grade}}</p>
+
+                    <p class="p2">{{college}} ({{college_year}})</p>
+
+                </div>
+                <br/>
+                <div class="box-1">
+                    <p class="heading">SKILLS</p>
+                    <ul class="skill">
+                        {%for skill in skills%}
+                            <li>
+                                <span class="text">{{skill}}</span>
+                            </li>
+                        {%endfor%}
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="right">
+                
+                <div class="box-2">
+                    <h2>PROJECTS</h2>
+                    <ul>
+                        {% for project in projects %}
+                            <li>
+                                <p>{{ project }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    
+                </div>
+
+                <div class="box-2">
+                    <h2>CERTIFICATIONS AND SPECILIASATIONS</h2>
+                    <ul>
+                        {%for certificate in certificates%}
+                            <li>
+                                <span class="text">{{certificate}}</span>
+                            </li>
+                        {%endfor%}
+                    </ul>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function printpdf(){
+            var element = document.getElementById('element-to-print');
+            html2pdf(element);
+        }
+    </script>
+
+</body>
+</html>

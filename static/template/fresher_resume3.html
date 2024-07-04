@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Resume/CV Design</title>
+	<link rel="stylesheet" href="{% static 'C:\Users\lenovo\Desktop\Resume_Builder copy\static\template\fresher_resume3style.css' %}">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <a href="{% url 'user_logout' %}">Logout</a>
+  <button class="download" onclick="printpdf()">Download pdf</button>
+  <div class="container" id="element-to-print">
+
+    <div class="resume">
+      <div class="resume_left">
+        <div class="resume_profile">
+          <img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
+        </div>
+        <div class="resume_content">
+          <div class="resume_item resume_info">
+            <div class="title">
+              <p class="bold">{{name}}</p>
+              
+            </div>
+            <div class="title">
+              <p class="bold">PERSONAL DETAILS</p>
+            </div>
+            <ul>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-map-signs"></i>
+                </div>
+                <div class="data">
+                  {{address}}
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="data">
+                  {{contact_no}}
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="data">
+                  {{email}}
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="data">
+                  {{linkedin}}
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="resume_item resume_skills">
+            <div class="title">
+              <p class="bold">skills</p>
+            </div>
+            <ul>
+              {%for skill in skills%}
+                  <li>
+                      <span class="text">{{skill}}</span>
+                  </li>
+              {%endfor%}
+          </ul>
+          </div>
+          
+        </div>
+      </div>
+      <div class="resume_right">
+        
+        <div class="resume_item resume_work">
+            <div class="title">
+              <p class="bold">PROJECTS</p>
+            </div>
+            <ul>
+              {% for project in projects %}
+                <li>
+                    {{ project }}
+                </li>
+             {% endfor %}
+                
+            </ul>
+        </div>
+        <div class="resume_item resume_education">
+          <div class="title">
+              <p class="bold">Education</p>
+            </div>
+          <ul>
+                <li>
+                    <div class="date">Senior SecondarY</div> 
+                    <div class="info">
+                      <h4><b> {{grade_10}}</h4>
+                        <h4> {{school_10}} ({{year_10}}) </h4>
+                    </div>
+                </li>
+                <li>
+                  <div class="date">Higher Secondary</div>
+                  <div class="info">
+                    <h4><b>{{grade_12}}  </h4>
+                      <h4>{{school_12}} ({{year_12}})</h4>
+                    </div>
+                </li>
+                <li>
+                  <div class="date">Graduation</div>
+                  <div class="info">
+                    <h4><b>{{course_name}} : {{college_grade}} </h4>
+                      <h4>{{college}} ({{college_year}})</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="resume_item resume_hobby">
+          <div class="title">
+              <p class="bold">CERTIFICATION AND SPECILISATION</p>
+            </div>
+            {%for certificate in certificates%}
+               <h4>{{certificate}}</h4><br>
+            {%endfor%}
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+      function printpdf(){
+          var element = document.getElementById('element-to-print');
+          html2pdf(element);
+      }
+  </script>
+</body>
+
+</html>

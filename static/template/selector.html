@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'template/selectorstyle.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div> </div>
+    <div class="container candidate-container">
+        <h1>Welcome to Your Resume Builder</h1>
+        <p>Let's craft your professional story!</p>
+        <div class="row">
+            <div class="col-md-6">
+            <img src="\static\image\fresher.jpg" alt="Fresher Candidate" class="candidate-image">
+            <div class="center-button">
+                <a href="{% url 'freshertemplate_page' %}" class="btn btn-success custom-text-color">Fresher</a>
+
+            </div>
+            </div>
+
+            <div class="col-md-6">
+            <img src="\static\image\experience.png" alt="Experienced Candidate" class="candidate-image">
+            <div class="center-button">
+                <a href="{% url 'experiencetemplate_page' %}" class="btn btn-success custom-text-color">Experience</a>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

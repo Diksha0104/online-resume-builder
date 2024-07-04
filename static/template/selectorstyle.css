@@ -1,0 +1,52 @@
+/* styles.css */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.candidate-container {
+  text-align: center;
+  margin-top: -200px; /* Adjust the margin-top value as needed */
+}
+
+/* selectorstyle.css */
+
+.candidate-image {
+width: 150px;
+height: auto;
+border-radius: 50%;
+margin-bottom: 20px;
+/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); */
+box-shadow: 0 4px 8px rgba(0, 128, 0, 1.0);
+border: 2px solid transparent; /* Start with a transparent border */
+transition: border 0.3s ease-in-out; /* Add transition for a smooth effect */
+}
+
+.candidate-image:hover {
+border: 2px solid green; /* Change the border color on hover */
+}
+
+
+.center-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-text-color {
+  color: black; /* Set the text color to black */
+}
+
+/* styles.css */
+
+/* Your existing styles ... */
+
+.choose-type-container h1 {
+margin-top: 0; /* Remove default margin for h1 */
+margin-bottom: 100px; /* Add animation */
+}
+
+

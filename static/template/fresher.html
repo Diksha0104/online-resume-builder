@@ -1,0 +1,194 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Form</title>
+  <link rel="stylesheet" href="{% static 'template/fresherstyle.css' %}">
+  <script src="{% static 'template/fresherscript.js' %}"></script>
+</head>
+<body>
+  <h1>Create Your Resume</h1>
+  <form method="POST"  action="/display_page?id={{id}}">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Objective</legend>
+      <label for="objective">Objective:</label>
+      <textarea id="objective" name="objective" rows="4" cols="50"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+
+      <label for="contact">Contact No:</label>
+      <input type="text" id="contact" name="contact_no">
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="linkedin">LinkedIn:</label>
+      <input type="text" id="linkedin" name="linkedin">
+    </fieldset>
+
+    <fieldset>
+        <legend>Education</legend>
+        <div class="education-column">
+          <div class="education-row">
+            <label for="tenSchool">10th School:</label>
+            <input type="text" id="tenSchool" name="10-school">
+            <label for="tenPercentage">10th Percentage:</label>
+            <input type="text" id="tenPercentage" name="10-grade">
+            <label for="tenYear">10th Passout Year:</label>
+            <input type="text" id="tenYear" name="10-year">
+          </div>
+      
+          <div class="education-row">
+            <label for="twelveSchool">12th School:</label>
+            <input type="text" id="twelveSchool" name="12-school">
+            <label for="twelvePercentage">12th Percentage:</label>
+            <input type="text" id="twelvePercentage" name="12-grade">
+            <label for="twelveYear">12th Passout Year:</label>
+            <input type="text" id="twelveYear" name="12-year">
+          </div>
+      
+          <div class="education-row">
+            <label for="college">Course name:</label>
+            <input type="text" id="college" name="course_name">
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college">
+            <label for="collegePercentage">College Percentage:</label>
+            <input type="text" id="collegePercentage" name="college-grade">
+            <label for="collegeYear">College Passout Year:</label>
+            <input type="text" id="collegeYear" name="college-year">
+          </div>
+        </div>
+      </fieldset>
+      
+     {% comment %} <fieldset>
+      <legend>Projects</legend>
+      <div id="projects">
+          <div class="project">
+              <label for="project1">Project</label>
+              <input type="text" name="projects" id="project1">
+          </div>
+      </div>
+      <button type="button" onclick="addProject()">Add More Projects</button>
+    </fieldset>
+  
+  <script>
+      function addProject() {
+          var projectsDiv = document.getElementById('projects');
+          var newProjectDiv = document.createElement('div');
+          var projectCount = projectsDiv.querySelectorAll('.project').length + 1;
+  
+          newProjectDiv.innerHTML = `
+          <label for="project${projectCount}">Project:</label>
+          <input type="text" name="projects" id="project${projectCount}">
+      `;
+      
+          projectsDiv.appendChild(newProjectDiv);
+      }
+  </script> {% endcomment %}
+
+    {% comment %} <fieldset>
+      <legend>Skills</legend>
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" rows="4" cols="50"></textarea>
+    </fieldset> {% endcomment %}
+    <fieldset>
+      <legend>Skills</legend>
+      <div id="skills">
+          <div class="skill">
+              <label for="skill1">Skill 1:</label>
+              <input type="text" name="skills" id="skill1">
+          </div>
+      </div>
+      <button type="button" onclick="addSkill()">Add More Skills</button>
+    </fieldset>
+  
+    <script>
+      function addSkill() {
+          var skillsDiv = document.getElementById('skills');
+          var newSkillDiv = document.createElement('div');
+          var skillCount = skillsDiv.querySelectorAll('.skill').length + 1;
+  
+          newSkillDiv.innerHTML = `
+              <label for="skill${skillCount}">Skill ${skillCount}:</label>
+              <input type="text" name="skills" id="skill${skillCount}">
+          `;
+          skillsDiv.appendChild(newSkillDiv);
+      }
+    </script>
+
+    {% comment %} <fieldset>
+      <legend>Certificates</legend>
+      <label for="certificates">Certificates:</label>
+      <textarea id="certificates" name="certificates" rows="4" cols="50"></textarea>
+    </fieldset> {% endcomment %}
+    
+
+    <fieldset>
+      <legend>Certificates</legend>
+      <div id="certificates">
+          <div class="certificate">
+              <label for="certificate1">Certificate 1:</label>
+              <input type="text" name="certificates" id="certificate1">
+          </div>
+      </div>
+      <button type="button" onclick="addCertificate()">Add More Certificates</button>
+  </fieldset>
+  
+  <script>
+      function addCertificate() {
+          var certificatesDiv = document.getElementById('certificates');
+          var newCertificateDiv = document.createElement('div');
+          var certificateCount = certificatesDiv.querySelectorAll('.certificate').length + 1;
+  
+          newCertificateDiv.innerHTML = `
+              <label for="certificate${certificateCount}">Certificate ${certificateCount}:</label>
+              <input type="text" name="certificates" id="certificate${certificateCount}">
+          `;
+          certificatesDiv.appendChild(newCertificateDiv);
+      }
+  </script>
+
+  <fieldset>
+    <legend>Projects</legend>
+    <div id="projects">
+        <div class="project">
+            <label for="project1">Project</label>
+            <input type="text" name="projects" id="project1">
+        </div>
+    </div>
+    <button type="button" onclick="addProject()">Add More Projects</button>
+  </fieldset>
+
+  <script>
+      function addProject() {
+          var projectsDiv = document.getElementById('projects');
+          var newProjectDiv = document.createElement('div');
+          var projectCount = projectsDiv.querySelectorAll('.project').length + 1;
+
+          newProjectDiv.innerHTML = `
+          <label for="project${projectCount}">Project:</label>
+          <input type="text" name="projects" id="project${projectCount}">
+      `;
+      
+          projectsDiv.appendChild(newProjectDiv);
+      }
+  </script>
+
+  
+    <input type="submit" value="Create Resume">
+  </form>
+
+  <script src="{% static 'template/fresherscript.js' %}"></script>
+</body>
+</html>

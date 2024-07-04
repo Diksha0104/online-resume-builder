@@ -6,15 +6,15 @@
 	box-sizing: border-box;
 }
 :root {
-	--primary-color:black;
-	--text-color: black;
+	--primary-color: #ff7613;
+	--text-color: #727171;
 }
 html {
 	font-size: 10px;
 }
 body {
 	font-family: Inter, sans-serif;
-	background-color: white;
+	background-color: black;
 	color: white;
 }
 
@@ -24,7 +24,7 @@ img {
 }
 a {
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 .description {
 	margin-top: 1rem;
@@ -45,13 +45,13 @@ a {
 }
 .item_title {
 	font-size: 1.6rem;
-	color: black;
+	color: white;
 	font-weight: 500;
 	margin: 0.8rem 0;
 }
 .item_subtitle {
 	font-size: 1.4rem;
-	color: black;
+	color: var(--text-color);
 	font-weight: 400;
 }
 
@@ -62,7 +62,7 @@ a {
 	margin: 0 auto;
 	display: grid;
 	padding: 5rem;
-	background: whitesmoke;
+	background: #070707;
 	grid-template-columns: 1fr 1fr;
 	gap: 4rem;
 }
@@ -114,7 +114,7 @@ a {
 	max-width: 250px;
 }
 .profile_name_firstName {
-	color: black;
+	color: white;
 	font-weight: 200;
 	font-size: clamp(2rem, 8vw, 4rem);
 	text-transform: uppercase;
@@ -132,7 +132,6 @@ a {
 	font-size: 1.5rem;
 	font-weight: 400;
 	text-transform: uppercase;
-	color: black;
 }
 .downloadBtn {
 	display: block;
@@ -154,7 +153,6 @@ a {
 	margin-top: 1rem;
 	margin-left: 2rem;
 	line-height: 2;
-	color: black;
 }
 
 /* Ref  */
@@ -164,7 +162,6 @@ a {
 .ref_name {
 	font-size: 1.6rem;
 	font-weight: 700;
-	color: black;
 }
 
 /* eduction */

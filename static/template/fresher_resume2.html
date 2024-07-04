@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'C:\Users\lenovo\Desktop\Resume_Builder copy\static\template\fresher_resume2style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Resume</title>
+</head>
+
+<body>
+    <a href="{% url 'user_logout' %}">Logout</a>
+    <button class="download" onclick="printpdf()">Download pdf</button>
+    <div class="container" id="element-to-print">
+        <section class="main-section">
+        
+            
+                <div class="left-part">
+                    
+                    <div class="contact-container">
+                        <h2 class="title">PERSONAL DETAILS</h2>
+                        <div class="contact-list">
+                            <div class="icon-container">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="contact-text">
+                            <p>{{address}}</p>
+                            </div>
+                        </div>
+                        <div class="contact-list">
+                            <div class="icon-container">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>{{contact_no}}</p>
+                            </div>
+                        </div>
+                        <div class="contact-list">
+                            <div class="icon-container">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>{{email}}</p>
+                            </div>
+                        </div>
+                        <div class="contact-list">
+                            <div class="icon-container">
+                                <i class="bi bi-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>{{linkedin}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-container">
+                        <h2 class="title">Education</h2>
+                        <div class="course">
+                            <h4><b>{{course_name}} : {{college_grade}} </h4>
+                                <h4>{{college}} ({{college_year}})</h4>
+                        </div>
+                        <div class="course">
+                            <h4><b> Higher Secondary(12th) : {{grade_12}}  </h4>
+                                <h4>{{school_12}} ({{year_12}})</h4>
+                        </div>
+                        <div class="course">
+                            <h4><b> Secondary (10th) : {{grade_10}}</h4>
+                                <h4> {{school_10}} ({{year_10}}) </h4>
+                        </div>
+                    </div>
+
+                   
+                    <div class="skills-container">
+                        <h2 class="title">Skills</h2>
+                        <div class="skill">
+                            <ul>
+                                {%for skill in skills%}
+                                    <li>
+                                        <span class="text">{{skill}}</span>
+                                    </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="right-part">
+                    <div class="banner">
+                        <h1 class="firstname">{{name}}</h1>
+                    </div>
+
+                    <div class="work-container ">
+                        <h2 class="title text-left">OBJECTIVE</h2>
+                        <div class="work">
+                            <div class="job-date">
+                            </div>
+                            <p>{{ objective }}</p>
+                        </div>
+                        <h2 class="title text-left">PROJECTS</h2>
+                        <div class="work">
+                            <div class="job-date">
+                            </div>
+                            <ul>
+                                {% for project in projects %}
+                                    <li>
+                                        {{ project }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+
+                        
+                    </div>
+
+                    <div class="references-container">
+                        <h2 class="title text-left">CERTIFICATION AND SPECILISATION</h2>
+                        {% comment %} <div class="references">
+                            <div class="left-references">
+                                <h4 class="name">Python Certificate from coursera</h4> <br><br>
+                                <h4 class="name">MYSQL Certificate from coursera</h4>  
+                            </div>
+                            <div class="right-references">
+                                <h4 class="name">Django Certificate from coursera</h4><br><br>
+                                <h4 class="name">Data Structure  Certificate from coursera</h4> 
+                            </div>
+                        
+                        </div> {% endcomment %}
+                        {%for certificate in certificates%}
+                            <h4>{{certificate}}</h4><br>
+                        {%endfor%}
+                    </div>
+                </div>
+        </section>
+    </div>
+    <script>
+        function printpdf(){
+            var element = document.getElementById('element-to-print');
+            html2pdf(element);
+        }
+    </script>
+</body>
+
+</html>

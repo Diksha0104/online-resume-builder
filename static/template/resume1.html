@@ -23,12 +23,13 @@
                 <div class="left-part">
                     
                     <div class="contact-container">
-                        <h2 class="title">Contact Me</h2>
+                        <h2 class="title">Contact</h2>
                         <div class="contact-list">
                             <div class="icon-container">
                                 <i class="bi bi-geo-alt-fill"></i>
                             </div>
                             <div class="contact-text">
+                                {{image}}
                                 <p>{{address}}</p>
                             </div>
                         </div>
@@ -91,16 +92,17 @@
                         <h2 class="title">Projects</h2>
                         <div class="skill">
                             <div class="left-skill">
-                                <p><ul>
-                                        {%for project in projects%}
-                                            <li>{{project}}</li>
-                                        {%endfor%}
-                                    </ul></p>
+                                <ul>
+                                    {% for project in projects %}
+                                        <li>
+                                            {{project}}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                             </div>
-                            
                         </div>
-                    
                     </div>
+                    
                 </div>
                 <div class="right-part">
                     <div class="banner">
@@ -111,20 +113,26 @@
                     <div class="work-container ">
                         <h2 class="title text-left">Profile</h2>
                         <div class="work">
-                            {{profile}}
+                            {{objective}}
                         </div>  
                     </div>
 
                     <div class="work-container ">
                         <h2 class="title text-left">work experience</h2>
                         <div class="work">
-                            <div class="job-date">
-                                <p class="job">{{job_post}}</p>
-                                <p class="date">{{job_duration}}</p>
-                            </div>
-                            <h2 class="company-name">{{company}}</h2>
-                            <p class="work-text">{{job_about}}</p>
-                        </div>  
+                            {% for job in jobs %}
+            <div class="box" style="color: black;">
+                <div class="Year_company">
+                    <h2>{{ job.job_duration }}</h2>
+                    <h2>{{ job.company }}</h2>
+                </div>
+                <div class="text">
+                    <h2>{{ job.job_post }}</h2>
+                    <h3>{{ job.job_about }}</h3><br><br>
+                </div>
+            </div>
+        {% endfor %}
+
                     </div>
 
                             <div class="work-container ">

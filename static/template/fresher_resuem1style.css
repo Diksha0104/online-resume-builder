@@ -1,0 +1,180 @@
+/*@import url('https://fonts.googleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');*/
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+body
+{
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+header {
+    background-color: #343a40;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style the Logout button */
+.logout-button {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px;
+    margin-right: 20px; /* Add some margin between the buttons */
+}
+
+/* Style the Download button */
+.download-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container
+{
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    margin: 50px;
+    background: #fff;
+    display: grid;
+    grid-template-rows: 200px;
+    box-shadow: 0 35px 55px rgba(0,0,0,0.1);
+    
+}
+.container .left_Side
+{
+    position: relative;
+    background: #003147;
+    padding: 40px;
+}
+.container .right_Side
+{
+    position: relative;
+    background: #fff;
+    padding: 40px;
+}
+.profiletext
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    
+}
+/*.profiletext .imgbx
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.profiletext .imgbx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}*/
+.profiletext h1
+{
+    color: #fff;
+    font-size: 2.5em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4em;
+
+}
+
+.profiletext p
+{
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4em;
+
+}
+.right_Side{
+    display:flex;
+    flex-wrap: wrap;
+}
+.left{
+    flex:1;
+    padding:30px;
+}
+.left p{
+    line-height: 2;
+}
+.left ul li{
+    line-height: 2;
+}
+h2{
+    background: #003147;
+    padding:15px;
+    color: #fff;
+    margin: 30px 0;
+    font-size: 20px;
+    border-radius: 0 50px 50px 0;
+}
+.right{
+    flex: 1;
+    padding: 30px;
+}
+.right h3{
+    margin-bottom: 15px;
+}
+.right p{
+    line-height: 2;
+}
+.right ul li{
+    line-height: 2;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .container{
+        width: 95%;
+    }
+    h2{
+        font-size: 10px;
+    }
+}
+@media screen  and (max-width: 600px){
+    .main{
+        flex-direction: column;
+    }
+    .left,
+    .right{
+        flex:none;
+        width:100%;
+    }
+    .container{
+        width: 95%;
+        height: auto;
+    }
+    h2{
+        font-size: 15px;
+    }
+}
